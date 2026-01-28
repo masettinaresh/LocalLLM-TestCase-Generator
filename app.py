@@ -5,7 +5,7 @@ from tools.ollama_tool import OllamaTool
 app = Flask(__name__)
 
 # Configuration
-TEMPLATE_PATH = os.path.join("prompts", "testcase_template.md")
+TEMPLATE_PATH = os.path.join("architecture", "templates", "testcase_template.md")
 tool = OllamaTool(model="llama3.2")
 
 def get_template():

@@ -6,3 +6,6 @@
 - **Phase 4**:
     - **UI**: Added Glassmorphism, Markdown styling, and "Download Report".
     - **Fixes**: Resolved static asset paths.
+- **2026-01-28**:
+    - **Git**: Initialized repository and pushed code to GitHub.
+    - **Deployment**: Confirmed app and model readiness.
