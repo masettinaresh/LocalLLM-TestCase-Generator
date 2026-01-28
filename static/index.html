@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Test Case Generator</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">🧬 AITester</div>
+            <h1>Local Test Case Generator</h1>
+            <p>Powered by Ollama (llama3.2)</p>
+        </header>
+
+        <main>
+            <div class="input-section">
+                <label for="userInput">Describe feature or paste requirements:</label>
+                <textarea id="userInput"
+                    placeholder="e.g. Create test cases for a login page with 'Remember Me' functionality..."></textarea>
+                <button id="generateBtn">
+                    <span id="btnText">Generate Test Cases</span>
+                    <div class="loader" id="loader"></div>
+                </button>
+            </div>
+
+            <div class="output-section" id="outputSection" style="display: none;">
+                <div class="output-header">
+                    <h2>Generated Test Cases</h2>
+                    <div class="actions">
+                        <button class="copy-btn" onclick="downloadReport()">⬇ Download .md</button>
+                        <button class="copy-btn" onclick="copyToClipboard()">📋 Copy</button>
+                    </div>
+                </div>
+                <div id="resultContent" class="markdown-body"></div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Markdown Parser (Simple/Lightweight) -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="/static/script.js"></script>
+</body>
+
+</html>
