@@ -17,6 +17,28 @@ A professional, local LLM-powered test case generator built with **Python (Flask
 - **LLM Engine**: Ollama (Model: llama3.2)
 - **Formatting**: Marked.js (Markdown rendering)
 
+## ⚙️ System Workflow
+
+The project follows a deterministic 3-layer architecture to handle probabilistic LLM outputs reliably.
+
+```mermaid
+graph TD
+    User((User)) -->|Input Requirements| UI[Chat UI - static/index.html]
+    UI -->|POST /api/generate| API[Flask Backend - app.py]
+    
+    subgraph "3-Layer Architecture"
+        API -->|1. Reason/Route| Nav[Layer 2: Navigation]
+        Nav -->|2. Load Template| Prompts[Layer 1: architecture/sop_generation.md]
+        Nav -->|3. Execute Tool| Tool[Layer 3: tools/ollama_tool.py]
+    end
+    
+    Tool -->|Request| Ollama[Ollama Local API]
+    Ollama -->|Inference| Model(Llama 3.2)
+    Model -->|Markdown Response| API
+    API -->|JSON Payload| UI
+    UI -->|Render Table| User
+```
+
 ## 📋 Prerequisites
 
 1. **Ollama**: [Download and install Ollama](https://ollama.com/).
